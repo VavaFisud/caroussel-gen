@@ -11,11 +11,18 @@ const state = {
 
 const errorBox = document.querySelector('#ops-error');
 const geminiStatus = document.querySelector('#gemini-status');
+const sideNavLinks = [...document.querySelectorAll('.ops-side-nav a[href^="#"]')];
 
 function setError(message = '') {
   errorBox.textContent = message;
   errorBox.hidden = !message;
   errorBox.dataset.kind = message && /^(Compte|VA|Template|Daily|Demande|Carousel)/.test(message) ? 'success' : 'error';
+}
+
+function setActiveNav(hash) {
+  for (const link of sideNavLinks) {
+    link.classList.toggle('is-active', link.getAttribute('href') === hash);
+  }
 }
 
 function option(label, value) {
@@ -428,5 +435,22 @@ document.querySelector('#logout-button').addEventListener('click', async () => {
   await fetch('/api/admin/logout', { method: 'POST' });
   window.location.href = '/login';
 });
+
+for (const link of sideNavLinks) {
+  link.addEventListener('click', () => setActiveNav(link.getAttribute('href')));
+}
+
+const observedSections = sideNavLinks
+  .map((link) => document.querySelector(link.getAttribute('href')))
+  .filter(Boolean);
+if ('IntersectionObserver' in window && observedSections.length) {
+  const observer = new IntersectionObserver((entries) => {
+    const visible = entries
+      .filter((entry) => entry.isIntersecting)
+      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (visible?.target?.id) setActiveNav(`#${visible.target.id}`);
+  }, { rootMargin: '-18% 0px -62% 0px', threshold: [0.08, 0.18, 0.32] });
+  observedSections.forEach((section) => observer.observe(section));
+}
 
 loadState().catch((error) => setError(error.message));

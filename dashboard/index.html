@@ -11,24 +11,44 @@
 </head>
 <body data-page="ops">
   <div class="ops-shell">
-    <header class="ops-topbar">
-      <div>
-        <p class="eyebrow">Admin</p>
-        <h1>Carousel Ops</h1>
+    <aside class="ops-sidebar" aria-label="Navigation admin">
+      <div class="ops-brand">
+        <strong>CarouselGen</strong>
+        <span>Portail admin</span>
       </div>
-      <nav class="ops-links">
-        <a href="/builder">Template builder</a>
+      <nav class="ops-side-nav">
+        <a class="is-active" href="#overview">Accueil</a>
+        <a href="#accounts">Comptes & VA</a>
+        <a href="#templates">Templates</a>
+        <a href="#generation">Generation</a>
+        <a href="#planning">Planning</a>
+        <a href="#tracking">Suivi posts</a>
+        <a href="#gemini">Gemini</a>
+        <a href="/builder">Builder avance</a>
         <a href="/doc">Doc IA</a>
-        <button class="ghost-button" id="logout-button" type="button">Logout</button>
       </nav>
-    </header>
+      <div class="ops-sidebar-footer">
+        <span>Connecte en tant que</span>
+        <strong>admin</strong>
+        <button class="ghost-button" id="logout-button" type="button">Se deconnecter</button>
+      </div>
+    </aside>
 
-    <main class="ops-layout">
-      <section class="ops-panel ops-hero">
+    <main class="ops-main">
+      <header class="ops-topbar">
         <div>
-          <p class="eyebrow">Etat</p>
-          <h2 id="ops-status-title">Chargement</h2>
+          <p class="eyebrow">Admin</p>
+          <h1>Dashboard admin</h1>
           <p id="ops-status-copy">Lecture du bot, des comptes et des jobs quotidiens.</p>
+        </div>
+        <a class="ops-admin-link" href="/builder">Template builder</a>
+      </header>
+
+      <div class="ops-layout">
+      <section id="overview" class="ops-panel ops-hero">
+        <div>
+          <p class="eyebrow">Etat systeme</p>
+          <h2 id="ops-status-title">Chargement</h2>
         </div>
         <div class="ops-metrics">
           <span><strong id="metric-accounts">0</strong> comptes</span>
@@ -38,7 +58,7 @@
         </div>
       </section>
 
-      <section class="ops-panel">
+      <section id="gemini" class="ops-panel">
         <div class="section-head compact-head">
           <div>
             <p class="eyebrow">Gemini</p>
@@ -79,7 +99,7 @@
         </div>
       </section>
 
-      <section class="ops-grid">
+      <section id="accounts" class="ops-grid">
         <article class="ops-panel">
           <div class="section-head compact-head">
             <div>
@@ -150,7 +170,7 @@
         </article>
       </section>
 
-      <section class="ops-grid">
+      <section id="templates" class="ops-grid">
         <article class="ops-panel">
           <div class="section-head compact-head">
             <div>
@@ -175,7 +195,7 @@
           </form>
         </article>
 
-        <article class="ops-panel">
+        <article id="planning" class="ops-panel">
           <div class="section-head compact-head">
             <div>
               <p class="eyebrow">Planning</p>
@@ -212,7 +232,7 @@
         </article>
       </section>
 
-      <section class="ops-panel">
+      <section id="generation" class="ops-panel">
         <div class="section-head compact-head">
           <div>
             <p class="eyebrow">Generation</p>
@@ -256,7 +276,7 @@
         </div>
       </section>
 
-      <section class="ops-grid ops-wide-grid">
+      <section id="tracking" class="ops-grid ops-wide-grid">
         <article class="ops-panel">
           <div class="section-head compact-head">
             <div>
@@ -289,6 +309,7 @@
       </section>
 
       <div class="form-error" id="ops-error" hidden></div>
+      </div>
     </main>
   </div>
 
