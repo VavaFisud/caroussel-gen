@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "functions": {
+    "api/mcp.js": {
+      "maxDuration": 300,
+      "memory": 1024
+    },
+    "api/app.js": {
+      "maxDuration": 300,
+      "memory": 1024
+    }
+  },
+  "routes": [
+    { "src": "/mcp", "dest": "/api/mcp" },
+    { "src": "/health", "dest": "/api/mcp" },
+    { "src": "/(.*)", "dest": "/api/app" }
+  ]
+}

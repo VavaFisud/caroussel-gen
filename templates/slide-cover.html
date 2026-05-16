@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="{{google_fonts_url}}" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      width: 1080px;
+      height: 1080px;
+      overflow: hidden;
+      background: {{background_color}};
+      color: {{text_color}};
+      font-family: {{font_family}};
+      --annotation-color: {{annotation_color}};
+    }
+    .slide {
+      position: relative;
+      width: 1080px;
+      height: 1080px;
+      display: grid;
+      place-items: center;
+      padding: 92px 80px 120px;
+      isolation: isolate;
+    }
+    .top-paint {
+      position: absolute;
+      top: -4px;
+      left: 0;
+      width: 1080px;
+      height: 236px;
+      color: {{decoration_color}};
+      z-index: -1;
+      filter: blur(0.35px);
+    }
+	    .media {
+	      position: absolute;
+	      left: {{image_x}};
+	      top: {{image_y}};
+	      width: {{image_width}};
+	      height: {{image_height}};
+	      transform: translate(-50%, -50%);
+	      opacity: {{image_opacity}};
+	      z-index: -2;
+	      overflow: hidden;
+	      border-radius: {{image_radius}};
+	    }
+    .media.no-image { display: none; }
+    .media img {
+      width: 100%;
+      height: 100%;
+      object-fit: {{image_fit}};
+      object-position: {{image_position}};
+      filter: saturate(0.75) contrast(0.9);
+    }
+    .media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: {{background_color}};
+      opacity: 0.56;
+    }
+    .content {
+      width: 100%;
+      max-width: 920px;
+      margin-top: 130px;
+      text-align: center;
+    }
+    h1 {
+      margin: 0 auto;
+      color: {{text_color}};
+      font-size: {{title_font_size}};
+      line-height: {{line_height}};
+      font-weight: 400;
+      letter-spacing: 0;
+    }
+    .subtitle {
+      margin: 30px auto 0;
+      max-width: 780px;
+      color: {{text_color}};
+      font-size: {{subtitle_font_size}};
+      line-height: 1.22;
+      font-weight: 400;
+      opacity: 0.9;
+    }
+    .template-mark {
+      position: relative;
+      display: inline-block;
+      z-index: 1;
+      opacity: var(--mark-opacity, 1);
+    }
+    .template-mark::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      z-index: -1;
+      opacity: var(--mark-opacity, 1);
+    }
+    .mark-circle::after {
+      left: -0.24em;
+      right: -0.24em;
+      top: 0.07em;
+      bottom: -0.05em;
+      border: var(--mark-stroke, 3px) solid var(--mark-color, var(--annotation-color));
+      border-radius: 52% 48% 46% 54% / 44% 58% 42% 56%;
+      transform: rotate(var(--mark-rotation, -3deg));
+    }
+    .mark-underline::after {
+      left: -0.08em;
+      right: -0.1em;
+      bottom: 0.03em;
+      height: var(--mark-stroke, 6px);
+      border-radius: 999px;
+      background: var(--mark-color, var(--annotation-color));
+      transform: rotate(var(--mark-rotation, -1.8deg));
+    }
+    .handle {
+      position: absolute;
+      bottom: 80px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      color: {{handle_color}};
+      font-family: {{font_body}};
+      font-size: 30px;
+      font-size: {{handle_font_size}};
+      font-weight: 300;
+      letter-spacing: 0.8px;
+    }
+    .decor {
+      position: absolute;
+      display: block;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .decor-arrow {
+      overflow: visible;
+    }
+    .decor-arrow path {
+      stroke-width: var(--decor-stroke, 2.4px);
+    }
+    .decor-circle {
+      border: var(--decor-stroke, 3px) solid currentColor;
+      border-radius: 52% 48% 46% 54% / 44% 58% 42% 56%;
+    }
+    .decor-line {
+      height: var(--decor-stroke, 5px) !important;
+      border-radius: 999px;
+      background: currentColor;
+    }
+    .decor-text {
+      height: auto !important;
+      color: currentColor;
+      font-family: {{font_body}};
+      font-size: 30px;
+      font-weight: 400;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <main class="slide">
+    <figure class="{{image_class}}">
+      <img src="{{image_url}}" alt="">
+    </figure>
+    <svg class="top-paint" viewBox="0 0 1080 236" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M-12 0H1120V62C1056 44 1025 70 1014 122C1008 153 988 169 963 148C934 123 944 62 895 54C848 47 842 124 798 136C758 147 751 75 711 60C663 42 641 93 620 133C599 174 558 170 543 124C527 77 500 38 459 57C414 78 419 154 370 164C319 175 323 71 276 58C225 44 205 122 169 140C132 158 112 119 106 82C98 37 56 43 25 66C6 80 -5 79 -12 72V0Z" fill="currentColor"/>
+      <path d="M92 0C111 34 114 72 106 104C99 135 78 146 61 119C42 89 44 39 58 0H92Z" fill="currentColor" opacity="0.72"/>
+      <path d="M528 0C545 42 543 84 525 109C505 138 480 117 481 79C481 50 493 21 507 0H528Z" fill="currentColor" opacity="0.62"/>
+      <path d="M875 0C898 46 895 93 870 120C847 145 824 117 831 74C835 46 848 20 858 0H875Z" fill="currentColor" opacity="0.66"/>
+    </svg>
+    <section class="content">
+      <h1>{{{cover_title_html}}}</h1>
+      <p class="subtitle">{{{cover_subtitle_html}}}</p>
+    </section>
+    {{{elements_html}}}
+    <div class="handle">{{account_handle}}</div>
+  </main>
+</body>
+</html>

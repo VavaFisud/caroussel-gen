@@ -1,0 +1,54 @@
+{
+  "cover_title": "Un parent qui essaye tout, mais se retrouve avec un bebe fatigue, des [[circle_siestes|siestes trop courtes]] et des reveils qui reviennent __underline_soir|chaque soir__.",
+  "cover_subtitle": " ",
+  "account_handle_override": "@bebenuitsfaciles",
+  "image_fit": "cover",
+  "da": {
+    "background_color": "#93AFA3",
+    "cta_background_color": "#93AFA3",
+    "accent_color": "#485D52",
+    "text_color": "#FFF8EF",
+    "handle_color": "rgba(255,248,239,0.76)",
+    "badge_bg": "#485D52",
+    "annotation_color": "#3D342A",
+    "decoration_color": "rgba(205,226,214,0.36)",
+    "arrow_color": "#FFF8EF",
+    "bullet_icon": "•",
+    "font_family": "'Cormorant Garamond', 'Playfair Display', Georgia, serif",
+    "font_body": "'DM Sans', Arial, sans-serif",
+    "google_fonts_url": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap",
+    "title_font_size": "68px",
+    "subtitle_font_size": "36px",
+    "body_font_size": "68px",
+    "content_title_font_size": "48px",
+    "handle_font_size": "30px",
+    "font_size_main": "68px",
+    "line_height": "1.25"
+  },
+  "cover_marks": [
+    { "kind": "circle", "token": "circle_siestes", "field": "cover_title", "text": "siestes trop courtes", "color": "#63766B", "strokeWidth": 5, "rotation": 2.5, "opacity": 0.95 },
+    { "kind": "underline", "token": "underline_soir", "field": "cover_title", "text": "chaque soir", "color": "#3D342A", "strokeWidth": 6, "rotation": 1.4, "opacity": 1 }
+  ],
+  "cover_elements": [
+    { "type": "circle", "x": 50, "y": 58, "width": 330, "height": 88, "color": "#63766B", "strokeWidth": 2, "rotation": 2.5, "opacity": 0.28 },
+    { "type": "line", "x": 50, "y": 75, "width": 210, "height": 10, "color": "#3D342A", "strokeWidth": 5, "rotation": 1.4, "opacity": 0.7 }
+  ],
+  "slides": [
+    {
+      "title": "",
+      "body": "Regarde d'abord les fenetres d'eveil. Quand elles sont trop longues, le sommeil devient plus dur meme avec un bon rituel.",
+      "marks": [
+        { "kind": "circle", "token": "fenetres", "field": "body", "text": "fenetres d'eveil", "color": "#63766B", "strokeWidth": 4, "rotation": 2, "opacity": 0.9 }
+      ],
+      "elements": [],
+      "image_url": "",
+      "image_position": "center"
+    }
+  ],
+  "cta_text": "Passe au plan complet",
+  "cta_sub": "L'ebook sommeil bebe est disponible dans la bio",
+  "cta_marks": [],
+  "decorative_elements": [
+    { "type": "arrow", "x": 50, "y": 84, "width": 130, "height": 28, "color": "#FFF8EF", "strokeWidth": 3, "opacity": 0.88, "rotation": 0 }
+  ]
+}

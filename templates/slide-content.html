@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="{{google_fonts_url}}" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      width: 1080px;
+      height: 1080px;
+      overflow: hidden;
+      background: {{background_color}};
+      color: {{text_color}};
+      font-family: {{font_family}};
+      --annotation-color: {{annotation_color}};
+    }
+    .slide {
+      position: relative;
+      width: 1080px;
+      height: 1080px;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      padding: 96px 80px 80px;
+      isolation: isolate;
+    }
+    .top-paint {
+      position: absolute;
+      top: -6px;
+      left: 0;
+      width: 1080px;
+      height: 220px;
+      color: {{decoration_color}};
+      z-index: -1;
+      filter: blur(0.35px);
+    }
+	    .media {
+	      position: absolute;
+	      left: {{image_x}};
+	      top: {{image_y}};
+	      width: {{image_width}};
+	      height: {{image_height}};
+	      transform: translate(-50%, -50%);
+	      border-radius: 32px;
+	      border-radius: {{image_radius}};
+	      overflow: hidden;
+	      opacity: {{image_opacity}};
+	      z-index: -1;
+	    }
+    .media.no-image { display: none; }
+    .media img {
+      width: 100%;
+      height: 100%;
+      object-fit: {{image_fit}};
+      object-position: {{image_position}};
+      filter: saturate(0.8) contrast(0.9);
+    }
+    .media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: {{background_color}};
+      opacity: 0.28;
+    }
+    .content {
+      align-self: center;
+      width: 100%;
+      max-width: 920px;
+      margin: 115px auto 0;
+      text-align: center;
+    }
+    h2 {
+      margin: 0 auto 28px;
+      max-width: 880px;
+      color: {{text_color}};
+      font-size: {{content_title_font_size}};
+      line-height: 1.14;
+      font-weight: 400;
+      opacity: 0.92;
+    }
+    .body {
+      margin: 0 auto;
+      max-width: 920px;
+      color: {{text_color}};
+      font-size: {{body_font_size}};
+      line-height: {{line_height}};
+      font-weight: 400;
+      white-space: pre-line;
+    }
+    .template-mark {
+      position: relative;
+      display: inline-block;
+      z-index: 1;
+      opacity: var(--mark-opacity, 1);
+    }
+    .template-mark::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      z-index: -1;
+      opacity: var(--mark-opacity, 1);
+    }
+    .mark-circle::after {
+      left: -0.24em;
+      right: -0.24em;
+      top: 0.07em;
+      bottom: -0.05em;
+      border: var(--mark-stroke, 3px) solid var(--mark-color, var(--annotation-color));
+      border-radius: 52% 48% 46% 54% / 44% 58% 42% 56%;
+      transform: rotate(var(--mark-rotation, -3deg));
+    }
+    .mark-underline::after {
+      left: -0.08em;
+      right: -0.1em;
+      bottom: 0.03em;
+      height: var(--mark-stroke, 6px);
+      border-radius: 999px;
+      background: var(--mark-color, var(--annotation-color));
+      transform: rotate(var(--mark-rotation, -1.8deg));
+    }
+    .handle {
+      align-self: end;
+      text-align: center;
+      color: {{handle_color}};
+      font-family: {{font_body}};
+      font-size: {{handle_font_size}};
+      font-weight: 300;
+      letter-spacing: 0.8px;
+    }
+    .decor {
+      position: absolute;
+      display: block;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .decor-arrow {
+      overflow: visible;
+    }
+    .decor-arrow path {
+      stroke-width: var(--decor-stroke, 2.4px);
+    }
+    .decor-circle {
+      border: var(--decor-stroke, 3px) solid currentColor;
+      border-radius: 52% 48% 46% 54% / 44% 58% 42% 56%;
+    }
+    .decor-line {
+      height: var(--decor-stroke, 5px) !important;
+      border-radius: 999px;
+      background: currentColor;
+    }
+    .decor-text {
+      height: auto !important;
+      color: currentColor;
+      font-family: {{font_body}};
+      font-size: 30px;
+      font-weight: 400;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <main class="slide">
+    <svg class="top-paint" viewBox="0 0 1080 220" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M-10 0H1090V52C1037 45 1010 78 1000 124C992 163 959 170 939 138C916 101 929 54 882 48C837 43 825 118 787 138C748 158 727 90 696 62C660 30 625 77 604 123C583 168 544 165 530 119C514 65 479 38 444 64C407 91 405 150 358 158C312 166 306 70 262 58C219 47 195 113 164 137C128 165 99 126 96 82C93 37 58 35 28 61C9 78 -3 80 -10 72V0Z" fill="currentColor"/>
+      <path d="M520 0C538 39 535 79 518 104C499 132 475 112 478 75C480 47 492 20 505 0H520Z" fill="currentColor" opacity="0.64"/>
+      <path d="M842 0C865 39 867 83 844 111C822 138 800 112 805 72C809 44 822 18 831 0H842Z" fill="currentColor" opacity="0.62"/>
+    </svg>
+    <figure class="{{image_class}}">
+      <img src="{{image_url}}" alt="">
+    </figure>
+    <section class="content">
+      <h2>{{{slide_title_html}}}</h2>
+      <p class="body">{{{slide_body_html}}}</p>
+    </section>
+    {{{elements_html}}}
+    <footer class="handle">{{account_handle}}</footer>
+  </main>
+</body>
+</html>

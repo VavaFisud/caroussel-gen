@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Connexion admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body data-page="ops">
+  <main class="login-shell">
+    <section class="login-panel">
+      <p class="eyebrow">CarouselGen admin</p>
+      <h1>Connexion</h1>
+      <form id="login-form" class="ops-form">
+        <label class="field">
+          <span>Utilisateur</span>
+          <input name="username" autocomplete="username" required value="admin">
+        </label>
+        <label class="field">
+          <span>Mot de passe</span>
+          <input name="password" type="password" autocomplete="current-password" required autofocus>
+        </label>
+        <button class="primary-button" type="submit">Entrer</button>
+      </form>
+      <div class="form-error" id="login-error" hidden></div>
+    </section>
+  </main>
+  <script>
+    const form = document.querySelector('#login-form');
+    const error = document.querySelector('#login-error');
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      error.hidden = true;
+      const response = await fetch('/api/admin/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          username: form.elements.username.value,
+          password: form.elements.password.value
+        })
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        error.textContent = data.error || 'Connexion impossible.';
+        error.hidden = false;
+        return;
+      }
+      window.location.href = '/';
+    });
+  </script>
+</body>
+</html>

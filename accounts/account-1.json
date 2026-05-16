@@ -1,0 +1,23 @@
+{
+  "slug": "account-1",
+  "name": "Compte Personnel Beatrice",
+  "handle": "@beatrice.bebe",
+  "telegram_chat_id": "TELEGRAM_CHAT_ID_OWNER",
+  "da": {
+    "background_color": "#7A9BAD",
+    "cta_background_color": "#7A9BAD",
+    "accent_color": "#4A6270",
+    "text_color": "#FFFFFF",
+    "handle_color": "rgba(255,255,255,0.75)",
+    "badge_bg": "#4A6270",
+    "annotation_color": "#3D2B1F",
+    "decoration_color": "rgba(157,189,202,0.45)",
+    "font_family": "'Cormorant Garamond', 'Playfair Display', Georgia, serif",
+    "font_body": "'DM Sans', Arial, sans-serif",
+    "google_fonts_url": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap",
+    "font_size_main": "72px",
+    "line_height": "1.28",
+    "arrow_color": "#FFFFFF",
+    "bullet_icon": "✦"
+  }
+}

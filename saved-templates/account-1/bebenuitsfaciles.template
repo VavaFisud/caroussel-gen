@@ -1,0 +1,82 @@
+{
+  "filename": "bebenuitsfaciles.template",
+  "sourceMediaId": "70b720e5-e8da-5263-a4b1-b334f1eca1de",
+  "canvas": {
+    "width": 1080,
+    "height": 1350,
+    "backgroundColor": "#87a8bc"
+  },
+  "typography": {
+    "mainFont": "serif",
+    "mainColor": "#ffffff",
+    "handleFont": "sans-serif",
+    "handleColor": "#ffffff"
+  },
+  "elements": [
+    {
+      "type": "text",
+      "id": "main_text",
+      "text": "Un bébé de 4 semaines épuisé, dormant seulement 8-12 heures par jour, avec des pleurs constants aux heures de sieste, et luttant pour trouver une routine qui l’aide à dormir plus longtemps.",
+      "alignment": "center",
+      "x": 540,
+      "y": 540,
+      "maxWidth": 760,
+      "fontSize": 62,
+      "lineHeight": 1.25,
+      "fontFamily": "serif",
+      "color": "#ffffff"
+    },
+    {
+      "type": "annotation",
+      "id": "circle",
+      "style": "handdrawncircle",
+      "targetText": "pleurs constants",
+      "color": "#6f7c80",
+      "strokeWidth": 6,
+      "x": 540,
+      "y": 650,
+      "width": 270,
+      "height": 95
+    },
+    {
+      "type": "annotation",
+      "id": "underline",
+      "style": "handdrawnunderline",
+      "targetText": "plus longtemps",
+      "color": "#2c2c2c",
+      "strokeWidth": 6,
+      "x": 540,
+      "y": 830,
+      "width": 290,
+      "height": 22
+    },
+    {
+      "type": "arrow",
+      "id": "next_arrow",
+      "position": "bottom_center",
+      "x": 540,
+      "y": 1125,
+      "color": "#ffffff",
+      "strokeWidth": 5,
+      "direction": "right"
+    },
+    {
+      "type": "text",
+      "id": "handle",
+      "text": "@bebenuitsfaciles",
+      "alignment": "center",
+      "x": 540,
+      "y": 1210,
+      "fontSize": 30,
+      "fontFamily": "sans-serif",
+      "color": "#ffffff"
+    }
+  ],
+  "notes": [
+    "center-aligned vertical stack",
+    "text block upper-middle",
+    "circle around pleurs constants",
+    "underline beneath plus longtemps",
+    "arrow above handle"
+  ]
+}

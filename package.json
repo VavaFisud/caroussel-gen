@@ -1,0 +1,28 @@
+{
+  "name": "carousel-gen",
+  "version": "1.0.0",
+  "description": "Instagram carousel generator using HTML templates rendered to PNG with Puppeteer.",
+  "type": "module",
+  "main": "src/dashboard.js",
+  "scripts": {
+    "start": "node src/dashboard.js",
+    "bot": "node src/telegram-bot.js",
+    "dev": "node src/dashboard.js",
+    "mcp": "node src/mcp-server.js",
+    "mcp:http": "node src/mcp-http-server.js",
+    "test:render": "node scripts/render-sample.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "@sparticuz/chromium": "^148.0.0",
+    "@vercel/blob": "^2.3.3",
+    "archiver": "^7.0.1",
+    "better-sqlite3": "^11.8.1",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "node-telegram-bot-api": "^0.66.0",
+    "puppeteer": "^24.1.1",
+    "sharp": "^0.34.5",
+    "zod": "^4.4.3"
+  }
+}

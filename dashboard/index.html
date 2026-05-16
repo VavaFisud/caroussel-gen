@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CarouselGen Operations</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body data-page="ops">
+  <div class="ops-shell">
+    <header class="ops-topbar">
+      <div>
+        <p class="eyebrow">Admin</p>
+        <h1>Carousel Ops</h1>
+      </div>
+      <nav class="ops-links">
+        <a href="/builder">Template builder</a>
+        <a href="/doc">Doc IA</a>
+        <button class="ghost-button" id="logout-button" type="button">Logout</button>
+      </nav>
+    </header>
+
+    <main class="ops-layout">
+      <section class="ops-panel ops-hero">
+        <div>
+          <p class="eyebrow">Etat</p>
+          <h2 id="ops-status-title">Chargement</h2>
+          <p id="ops-status-copy">Lecture du bot, des comptes et des jobs quotidiens.</p>
+        </div>
+        <div class="ops-metrics">
+          <span><strong id="metric-accounts">0</strong> comptes</span>
+          <span><strong id="metric-va">0</strong> VA</span>
+          <span><strong id="metric-jobs">0</strong> jobs</span>
+          <span><strong id="metric-posts">0</strong> posts suivis</span>
+        </div>
+      </section>
+
+      <section class="ops-panel">
+        <div class="section-head compact-head">
+          <div>
+            <p class="eyebrow">Gemini</p>
+            <h2>Generation IA</h2>
+          </div>
+          <div class="status-pill small-pill" id="gemini-status">Non configure</div>
+        </div>
+        <p class="ops-note">Vercel utilise une cle API Gemini. Sur VPS/local, le bot peut passer en mode Gemini CLI apres ton login terminal.</p>
+        <form id="ops-gemini-form" class="ops-form inline-form">
+          <label class="field">
+            <span>Cle API Gemini</span>
+            <input name="gemini_api_key" type="password" placeholder="AIza...">
+          </label>
+          <label class="field">
+            <span>Modele</span>
+            <input name="gemini_model" type="text" value="gemini-2.5-flash">
+          </label>
+          <div class="button-row">
+            <button class="ghost-button" type="submit">Connecter API</button>
+            <button class="ghost-button" id="gemini-logout" type="button">Deconnecter</button>
+          </div>
+        </form>
+        <form id="ops-gemini-mode-form" class="ops-form gemini-mode-form">
+          <label class="field">
+            <span>Mode generation</span>
+            <select name="gemini_mode">
+              <option value="auto">Auto</option>
+              <option value="cli">Gemini CLI local/VPS</option>
+              <option value="api">API dashboard</option>
+            </select>
+          </label>
+          <button class="ghost-button" type="submit">Enregistrer le mode</button>
+        </form>
+        <div class="ops-code">
+          <code>npm install -g @google/gemini-cli</code>
+          <code>gemini</code>
+          <code>GEMINI_MODE=cli</code>
+        </div>
+      </section>
+
+      <section class="ops-grid">
+        <article class="ops-panel">
+          <div class="section-head compact-head">
+            <div>
+              <p class="eyebrow">Comptes</p>
+              <h2>Compte Instagram</h2>
+            </div>
+          </div>
+          <form id="account-form" class="ops-form">
+            <label class="field">
+              <span>Slug</span>
+              <input name="slug" required placeholder="bebenuitsfaciles">
+            </label>
+            <label class="field">
+              <span>Nom</span>
+              <input name="name" required placeholder="Bebe nuits faciles">
+            </label>
+            <label class="field">
+              <span>@ Instagram</span>
+              <input name="handle" placeholder="@bebenuitsfaciles">
+            </label>
+            <label class="field">
+              <span>Langue</span>
+              <input name="language" placeholder="francais, english, deutsch">
+            </label>
+            <label class="field">
+              <span>CTA du compte</span>
+              <select name="cta_type">
+                <option value="ebook">Acheter l'ebook en bio</option>
+                <option value="comment">Commenter un mot-cle</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Mot-cle commentaire</span>
+              <input name="cta_keyword" placeholder="SOMMEIL">
+            </label>
+            <label class="field">
+              <span>Offre / ressource</span>
+              <input name="cta_offer" placeholder="ebook sommeil bebe en bio">
+            </label>
+            <label class="field">
+              <span>Instruction CTA exacte</span>
+              <textarea name="cta_instruction" rows="3" placeholder="Ex: Abonne-toi et commente DODO pour recevoir la methode complete en message prive."></textarea>
+            </label>
+            <p class="ops-note">Creer un compte ne programme aucun envoi. Attribue ensuite un VA, puis cree un daily ou lance une generation manuelle.</p>
+            <button class="primary-button" type="submit">Enregistrer le compte</button>
+          </form>
+        </article>
+
+        <article class="ops-panel">
+          <div class="section-head compact-head">
+            <div>
+              <p class="eyebrow">VA</p>
+              <h2>Attribution Telegram</h2>
+            </div>
+          </div>
+          <p class="ops-note">Les VA apparaissent ici apres avoir envoye le mot de passe au bot.</p>
+          <form id="assign-form" class="ops-form">
+            <label class="field">
+              <span>VA Telegram</span>
+              <select name="chat_id" id="va-select"></select>
+            </label>
+            <label class="field">
+              <span>Comptes attribues</span>
+              <select name="account_slugs" id="assign-accounts" multiple size="6"></select>
+            </label>
+            <button class="primary-button" type="submit">Attribuer</button>
+          </form>
+        </article>
+      </section>
+
+      <section class="ops-grid">
+        <article class="ops-panel">
+          <div class="section-head compact-head">
+            <div>
+              <p class="eyebrow">Templates</p>
+              <h2>Importer un .template</h2>
+            </div>
+          </div>
+          <form id="template-upload-form" class="ops-form">
+            <label class="field">
+              <span>Compte cible</span>
+              <select name="account_slug" id="template-account"></select>
+            </label>
+            <label class="field">
+              <span>Nom du template</span>
+              <input name="template_name" placeholder="mediacarous-blue">
+            </label>
+            <label class="field">
+              <span>Fichier .template</span>
+              <input name="template_file" type="file" accept=".template,application/json" required>
+            </label>
+            <button class="primary-button" type="submit">Uploader le template</button>
+          </form>
+        </article>
+
+        <article class="ops-panel">
+          <div class="section-head compact-head">
+            <div>
+              <p class="eyebrow">Planning</p>
+              <h2>Planifier un post quotidien</h2>
+            </div>
+          </div>
+          <form id="daily-form" class="ops-form">
+            <label class="field">
+              <span>Compte</span>
+              <select name="account_slug" id="daily-account"></select>
+            </label>
+            <label class="field">
+              <span>VA destinataire</span>
+              <select name="chat_id" id="daily-chat"></select>
+            </label>
+            <label class="field">
+              <span>Template</span>
+              <select name="template_path" id="daily-template"></select>
+            </label>
+            <label class="field">
+              <span>Heure d'envoi</span>
+              <input name="time" type="time" value="09:00">
+            </label>
+            <label class="field">
+              <span>Theme</span>
+              <input name="topic" placeholder="ex: reveils nocturnes bebe 4 semaines">
+            </label>
+            <label class="check-row">
+              <input name="use_gemini" type="checkbox" checked>
+              <span>Regenerer le texte avec Gemini chaque jour</span>
+            </label>
+            <button class="primary-button" type="submit">Creer le daily</button>
+          </form>
+        </article>
+      </section>
+
+      <section class="ops-panel">
+        <div class="section-head compact-head">
+          <div>
+            <p class="eyebrow">Generation</p>
+            <h2>Generer et envoyer au VA</h2>
+          </div>
+        </div>
+        <form id="generate-form" class="ops-form ops-generate">
+          <label class="field">
+            <span>Compte</span>
+            <select name="account_slug" id="generate-account"></select>
+          </label>
+          <label class="field">
+            <span>Template</span>
+            <select name="template_path" id="generate-template"></select>
+          </label>
+          <label class="field">
+            <span>VA destinataire</span>
+            <select name="chat_id" id="generate-chat"></select>
+          </label>
+          <label class="field">
+            <span>Theme</span>
+            <input name="topic" placeholder="ex: reveils nocturnes bebe 4 semaines">
+          </label>
+          <label class="check-row">
+            <input name="use_gemini" type="checkbox" checked>
+            <span>Texte Gemini</span>
+          </label>
+          <button class="primary-button" type="submit">Generer et envoyer</button>
+        </form>
+      </section>
+
+      <section class="ops-panel template-preview-panel">
+        <div class="section-head compact-head">
+          <div>
+            <p class="eyebrow">Preview</p>
+            <h2>Apercu template</h2>
+          </div>
+        </div>
+        <div id="template-preview" class="template-preview">
+          <p class="ops-empty">Selectionne un template pour voir sa DA et son premier ecran.</p>
+        </div>
+      </section>
+
+      <section class="ops-grid ops-wide-grid">
+        <article class="ops-panel">
+          <div class="section-head compact-head">
+            <div>
+              <p class="eyebrow">Daily</p>
+              <h2>Jobs quotidiens</h2>
+            </div>
+          </div>
+          <div id="jobs-list" class="ops-list"></div>
+        </article>
+
+        <article class="ops-panel">
+          <div class="section-head compact-head">
+            <div>
+              <p class="eyebrow">Validation</p>
+              <h2>Posts envoyes</h2>
+            </div>
+          </div>
+          <div id="posts-list" class="ops-list"></div>
+        </article>
+      </section>
+
+      <section class="ops-panel">
+        <div class="section-head compact-head">
+          <div>
+            <p class="eyebrow">VA connectes</p>
+            <h2>Equipe Telegram</h2>
+          </div>
+        </div>
+        <div id="va-list" class="va-grid"></div>
+      </section>
+
+      <div class="form-error" id="ops-error" hidden></div>
+    </main>
+  </div>
+
+  <script src="/ops.js" type="module"></script>
+</body>
+</html>

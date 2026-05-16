@@ -1,0 +1,58 @@
+{
+  "cover_title": "Post sur le sommeil bebe",
+  "cover_subtitle": "Un carousel clair, pret a publier",
+  "cover_image_url": "",
+  "cover_image_position": "center",
+  "account_handle_override": "",
+  "image_fit": "cover",
+  "da": {
+    "background_color": "#7A9BAD",
+    "cta_background_color": "#7A9BAD",
+    "accent_color": "#4A6270",
+    "text_color": "#FFFFFF",
+    "handle_color": "rgba(255,255,255,0.75)",
+    "badge_bg": "#4A6270",
+    "annotation_color": "#3D2B1F",
+    "decoration_color": "rgba(157,189,202,0.45)",
+    "arrow_color": "#FFFFFF",
+    "bullet_icon": "✦",
+    "font_family": "'Cormorant Garamond', 'Playfair Display', Georgia, serif",
+    "font_body": "'DM Sans', Arial, sans-serif",
+    "google_fonts_url": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap",
+    "title_font_size": "72px",
+    "subtitle_font_size": "42px",
+    "body_font_size": "72px",
+    "content_title_font_size": "52px",
+    "handle_font_size": "30px",
+    "font_size_main": "72px",
+    "line_height": "1.28"
+  },
+  "slides": [
+    {
+      "title": "Signal",
+      "body": "reperer la fatigue",
+      "image_url": "",
+      "image_position": "center",
+      "elements": []
+    },
+    {
+      "title": "Rituel",
+      "body": "garder 3 actions",
+      "image_url": "",
+      "image_position": "center",
+      "elements": []
+    },
+    {
+      "title": "Reference style notes",
+      "body": "",
+      "image_url": "",
+      "image_position": "center",
+      "elements": []
+    }
+  ],
+  "cta_text": "Lis le guide complet",
+  "cta_sub": "L'ebook sommeil bebe est dans la bio",
+  "cta_image_url": "",
+  "cta_image_position": "center",
+  "decorative_elements": []
+}

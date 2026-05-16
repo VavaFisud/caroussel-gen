@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Doc templates IA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body data-page="ops">
+  <main class="ops-shell doc-page">
+    <header class="ops-topbar">
+      <div>
+        <p class="eyebrow">Reference agents IA</p>
+        <h1>Templates JSON</h1>
+      </div>
+      <nav class="ops-links">
+        <a href="/">Dashboard</a>
+        <a href="/builder">Builder</a>
+      </nav>
+    </header>
+    <section class="ops-panel">
+      <p class="ops-note">Cette page est la meme specification exposee au MCP via l'outil `get_template_documentation`.</p>
+      <pre class="doc-code" id="template-doc">Chargement...</pre>
+    </section>
+  </main>
+  <script>
+    fetch('/api/template-doc')
+      .then((response) => response.text())
+      .then((text) => { document.querySelector('#template-doc').textContent = text; })
+      .catch((error) => { document.querySelector('#template-doc').textContent = error.message; });
+  </script>
+</body>
+</html>

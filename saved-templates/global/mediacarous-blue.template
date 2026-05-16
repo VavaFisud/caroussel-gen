@@ -1,0 +1,53 @@
+{
+  "cover_title": "Un bebe de 4 semaines epuise, dormant seulement 8-12 heures par jour, avec des [[circle_pleurs|pleurs constants]] aux heures de sieste, et luttant pour trouver une routine qui l'aide a dormir __underline_longtemps|plus longtemps__.",
+  "cover_subtitle": " ",
+  "account_handle_override": "@bebenuitsfaciles",
+  "image_fit": "cover",
+  "da": {
+    "background_color": "#83AFC0",
+    "cta_background_color": "#83AFC0",
+    "accent_color": "#4A6270",
+    "text_color": "#FFFFFF",
+    "handle_color": "rgba(255,255,255,0.78)",
+    "badge_bg": "#4A6270",
+    "annotation_color": "#344146",
+    "decoration_color": "rgba(175,210,220,0.38)",
+    "arrow_color": "#FFFFFF",
+    "bullet_icon": "•",
+    "font_family": "'Cormorant Garamond', 'Playfair Display', Georgia, serif",
+    "font_body": "'DM Sans', Arial, sans-serif",
+    "google_fonts_url": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap",
+    "title_font_size": "70px",
+    "subtitle_font_size": "36px",
+    "body_font_size": "70px",
+    "content_title_font_size": "48px",
+    "handle_font_size": "30px",
+    "font_size_main": "70px",
+    "line_height": "1.24"
+  },
+  "cover_marks": [
+    { "kind": "circle", "token": "circle_pleurs", "field": "cover_title", "text": "pleurs constants", "color": "#4F666D", "strokeWidth": 5, "rotation": -3, "opacity": 0.95 },
+    { "kind": "underline", "token": "underline_longtemps", "field": "cover_title", "text": "plus longtemps", "color": "#2D3134", "strokeWidth": 6, "rotation": -1.5, "opacity": 1 }
+  ],
+  "cover_elements": [
+    { "type": "line", "x": 50, "y": 77, "width": 235, "height": 10, "color": "#2D3134", "strokeWidth": 5, "rotation": -1.2, "opacity": 0.75 }
+  ],
+  "slides": [
+    {
+      "title": "",
+      "body": "Le besoin principal n'est pas de forcer une routine. C'est de reduire la dette de sommeil avec des reperes tres simples.",
+      "marks": [
+        { "kind": "underline", "token": "repere_simple", "field": "body", "text": "reperes tres simples", "color": "#2D3134", "strokeWidth": 5, "rotation": -1.6, "opacity": 0.95 }
+      ],
+      "elements": [],
+      "image_url": "",
+      "image_position": "center"
+    }
+  ],
+  "cta_text": "Tu veux le plan complet ?",
+  "cta_sub": "Telecharge l'ebook sommeil bebe via le lien en bio",
+  "cta_marks": [],
+  "decorative_elements": [
+    { "type": "arrow", "x": 50, "y": 84, "width": 135, "height": 28, "color": "#FFFFFF", "strokeWidth": 3, "opacity": 0.9, "rotation": 0 }
+  ]
+}
